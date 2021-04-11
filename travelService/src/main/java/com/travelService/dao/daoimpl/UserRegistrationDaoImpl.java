@@ -1,4 +1,4 @@
-package com.travelService.daoImpl;
+package com.travelService.dao.daoimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

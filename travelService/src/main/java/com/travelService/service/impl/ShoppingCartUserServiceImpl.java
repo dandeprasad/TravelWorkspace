@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.travelService.daoImpl.ShoppingCartUserDaoImpl;
+import com.travelService.dao.daoimpl.ShoppingCartUserDaoImpl;
 import com.travelService.helperutil.ProfileHelper;
 import com.travelService.model.ShoppingCart;
 import com.travelService.service.IShoppingCartUserService;

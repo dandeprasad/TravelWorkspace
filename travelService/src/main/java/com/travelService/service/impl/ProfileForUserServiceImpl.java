@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.travelService.daoImpl.ProfileForUserDaoImpl;
+import com.travelService.dao.daoimpl.ProfileForUserDaoImpl;
 import com.travelService.model.UserProfile;
 import com.travelService.service.IProfileForUserService;
 

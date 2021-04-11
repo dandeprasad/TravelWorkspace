@@ -15,39 +15,40 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
-
 	@Autowired
 	public TokenStore tokenStore;
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		/*
-		 * http.authorizeRequests().anyRequest().permitAll().and().cors().disable().csrf
-		 * ().disable().httpBasic().disable() .exceptionHandling()
-		 * .authenticationEntryPoint( (request, response, authException) ->
-		 * response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-		 * .accessDeniedHandler( (request, response, authException) ->
-		 * response.sendError(HttpServletResponse.SC_UNAUTHORIZED));
-		 */
-		
+/*
+	 http.authorizeRequests().anyRequest().permitAll().and().cors().disable().csrf
+				 ().disable().httpBasic().disable() .exceptionHandling()
+				 .authenticationEntryPoint( (request, response, authException) ->
+				 response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+				.accessDeniedHandler( (request, response, authException) ->
+				response.sendError(HttpServletResponse.SC_UNAUTHORIZED));
+*/
 
-		http.antMatcher("/**")  
-        .authorizeRequests()  
-        .antMatchers("/v1/guest/**").permitAll()  
+
+
+
+			http.antMatcher("/**")
+					.authorizeRequests()
+        .antMatchers("/v1/guest/**").permitAll()
         .anyRequest().authenticated().and().cors().disable().csrf().disable().httpBasic().disable()
 				.exceptionHandling()
 				.authenticationEntryPoint(
 						(request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-				.accessDeniedHandler(
+			.accessDeniedHandler(
 						(request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED));
-	
-	}
+
+}
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		//resources.resourceId("USER_ADMIN_RESOURCE").tokenStore(tokenStore);
 		resources.resourceId("PRIME_TIME_USER_RESOURCE").tokenStore(tokenStore);
-		
+
 	}
 
 }
