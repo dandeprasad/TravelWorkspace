@@ -19,6 +19,7 @@ public class CustomUserAuthenticationConverter implements UserAuthenticationConv
 
 	
 	private final String EMAIL = "email";
+	private final String ID = "id";
 
 	private Collection<? extends GrantedAuthority> defaultAuthorities;
 
@@ -42,7 +43,7 @@ public class CustomUserAuthenticationConverter implements UserAuthenticationConv
 	public Authentication extractAuthentication(Map<String, ?> map) {
 		if (map.containsKey(USERNAME))
 			return new UsernamePasswordAuthenticationToken(
-					new CustomPrincipal(map.get(USERNAME).toString(), map.get(EMAIL).toString()), "N/A",
+					new CustomPrincipal(map.get(USERNAME).toString(), map.get(EMAIL).toString(), map.get(ID).toString()), "N/A",
 					getAuthorities(map));
 		return null;
 	}
