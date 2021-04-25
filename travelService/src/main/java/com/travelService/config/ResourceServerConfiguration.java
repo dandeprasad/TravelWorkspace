@@ -34,7 +34,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 			http.antMatcher("/**")
 					.authorizeRequests()
-        .antMatchers("/v1/guest/**").permitAll()
+        .antMatchers("/v1/video/guest/**").permitAll()
         .anyRequest().authenticated().and().cors().disable().csrf().disable().httpBasic().disable()
 				.exceptionHandling()
 				.authenticationEntryPoint(

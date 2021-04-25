@@ -2,10 +2,7 @@ package com.travelService.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Video value object
@@ -18,6 +15,8 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long videoId;
 private String videoTitle;
+
+@Column(name = "user_id")
 private long userId;
 private String description;
 private long uploadedTime;

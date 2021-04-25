@@ -3,7 +3,7 @@ package com.travelService.response;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FileUploadResponse {
+public class TravelResponse {
 
 	public int getCode() {
 		return code;
